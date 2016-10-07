@@ -1,0 +1,14 @@
+{
+  "name": "npm-web",
+  "version": "0.0.0",
+  "description": "npmWeb",
+  "main": "server.js",
+  "author": {
+    "name": "Randhir",
+    "email": ""
+  },
+  "dependencies": {
+    "mongodb": "^2.2.9",
+    "multer": "^1.2.0"
+  }
+}

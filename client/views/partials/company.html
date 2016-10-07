@@ -1,0 +1,90 @@
+﻿<div data-ng-include="'views/partials/topHeader.html'"></div>
+<div id="page-wrapper" data-ng-controller="companyController">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Companies</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New</button>
+            <!--<input type="button" id="btnShow" class="btn btn-primary" value="Add New" />-->
+            <!--<input type="button" class="btn btn-primary" value="Add New" />-->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Company
+                                    </th>
+                                    <th>
+                                        No. Products
+                                    </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="item in dataList">
+                                    <td>{{item.name}}</td>
+                                    <td>{{getProductsCount(item._id)}}</td>
+                                    <td>
+                                        <input type="button" class="btn btn-info" value="Edit" data-ng-click="edit(item._id);" />
+                                        <input type="button" class="btn btn-danger" value="Delete" data-ng-click="delete(item._id);" />
+                                        <input type="button" class="btn btn-danger" value="Products" data-ng-click="getproducts(item._id);" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div id="myModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+            <div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-10 col-md-offset-2">
+                            <div class="login-panel panel panel-default">
+                                <div class="panel-heading">
+                                    <button type="button" class="close" data-dismiss="modal" data-ng-click="closepopup();">&times;</button>
+                                    <h3 class="panel-title">Company Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <fieldset>
+                                            
+                                            <div class="form-group"> 
+                                                <input class="form-control" placeholder="name" name="name" data-ng-model="company.name" autofocus required>
+                                            </div>
+                                            
+                                            <!-- Change this to a button or input when using this as a form -->
+                                            <a class="btn btn-lg btn-success btn-block" data-ng-click="save();">Save</a>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

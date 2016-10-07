@@ -1,0 +1,124 @@
+﻿<div data-ng-include="'views/partials/topHeader.html'"></div>
+<div id="page-wrapper" data-ng-controller="productController">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Products</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!--<div class="row">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New</button>
+        </div>
+    </div>-->
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Search</label>
+                            <input type="text" data-ng-model="search" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                   
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 340px;margin-top: -50px;">Add New</button>
+                        <!--<input type="button" id="btnShow" class="btn btn-primary" value="Add New" />-->
+                        <!--<input type="button" class="btn btn-primary" value="Add New" />-->
+                  
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Product
+                                    </th>
+                                    <th data-ng-click="sort('cname')">
+                                        Company
+                                        <span class="glyphicon sort-icon" data-ng-show="sortKey=='cname'" data-ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                    </th>
+                                    <th data-ng-click="sort('name')">
+                                        Name
+                                        <span class="glyphicon sort-icon" data-ng-show="sortKey=='name'" data-ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                    </th>
+                                    <th data-ng-click="sort('price')">
+                                        Price
+                                        <span class="glyphicon sort-icon" data-ng-show="sortKey=='price'" data-ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                    </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="item in datalist | orderBy:sortKey:reverse| filter:search |itemsPerPage:5">
+                                    <td><img height="100" width="100" src="uploads/products/{{item.image}}" /></td>
+                                    <td>{{item.productsdetails[0].name}} </td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.price}}</td>
+                                    <td>
+                                        <input type="button" class="btn btn-info" value="Edit" data-ng-click="edit(item);" />
+                                        <input type="button" class="btn btn-danger" value="Delete" data-ng-click="delete(item);" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls max-size="5"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div id="myModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+            <div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-10 col-md-offset-2">
+                            <div class="login-panel panel panel-default">
+                                <div class="panel-heading">
+                                    <button type="button" class="close" data-dismiss="modal" data-ng-click="closepopup();">&times;</button>
+                                    <h3 class="panel-title">Product Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <input type="file" id="exampleInputFile" file-model="product.file" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="name" name="name" data-ng-model="product.name" autofocus>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="price" name="price" data-ng-model="product.price" autofocus>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control" ng-model="product.companyid" required>
+                                                    <option value="">Choose Company</option>
+                                                    <option data-ng-repeat="option in companies" value="{{option._id}}">{{option.name}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="category" name="category" data-ng-model="product.category">
+                                            </div>
+                                            <!-- Change this to a button or input when using this as a form -->
+                                            <a class="btn btn-lg btn-success btn-block" data-ng-click="save();">Save</a>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
