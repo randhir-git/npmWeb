@@ -7,7 +7,16 @@
     "name": "Randhir",
     "email": ""
   },
-  "dependencies": {
+    "dependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "cookie-parser": "^1.4.3",
+    "body-parser": "^1.15.2",
+    "express-session": "^1.14.0",
+    "mongoose": "^4.5.8",
+    "bcrypt-nodejs": "^0.0.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "mongodb": "^2.2.9",
     "multer": "^1.2.0"
   }
