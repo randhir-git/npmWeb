@@ -16,12 +16,11 @@ var debug = require('debug')('passport-mongo');
 //var app = require('./app');
 var express = require('express');
 var app = express();
-
-app.set('port', process.env.PORT || 3000);
+var port = process.env.PORT || 8000;
+//app.set('port', process.env.PORT || 3000);
 // mongoose
-mongoose.connect('mongodb://localhost/mean-auth');
-
-
+//mongoose.connect('mongodb://localhost/mean-auth');
+mongoose.connect('mongodb://randhir84tu:randhir84tu@ds049436.mlab.com:49436/randhir');
 // user schema/model
 var User = require('./server/models/user.js');
 
@@ -126,8 +125,9 @@ app.use(function (err, req, res) {
 });
 
 module.exports = app;
-app.listen(3000);
-console.log("server running on port 3000");
+app.listen(port, function () {
+    console.log('Our app is running on http://localhost:' + port);
+});
 //var server = app.listen(app.get('port'), function() {
 //  debug('Express server listening on port ' + server.address().port);
 //});
