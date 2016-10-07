@@ -24,7 +24,7 @@ myApp.config(function ($routeProvider, $httpProvider, $locationProvider) {
     .when('/register', {
         templateUrl: 'views/partials/register.html',
         controller: 'registerController',
-        access: { restricted: true }
+        access: { restricted: false }
     })
     .when('/products', {
         templateUrl: 'views/partials/products.html',
