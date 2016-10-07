@@ -20,7 +20,7 @@ var port = process.env.PORT || 8000;
 //app.set('port', process.env.PORT || 3000);
 // mongoose
 //mongoose.connect('mongodb://localhost/mean-auth');
-mongoose.connect('mongodb://randhir84tu:randhir84tu@ds049436.mlab.com:49436/randhir');
+mongoose.connect('mongodb://randhir84tu:randhir84tu@ds053206.mlab.com:53206/randhir');
 // user schema/model
 var User = require('./server/models/user.js');
 
